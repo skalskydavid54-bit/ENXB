@@ -204,7 +204,23 @@ export default function Home() {
       <section id="payment" style={styles.section}>
         <h2>{t.payment}</h2>
         <div style={styles.tabs}><button style={payment === "bank" ? styles.activeTab : styles.tab} onClick={() => setPayment("bank")}>Bank transfer</button><button style={payment === "crypto" ? styles.activeTab : styles.tab} onClick={() => setPayment("crypto")}>Crypto</button></div>
-        <div style={styles.payBox}>{payment === "bank" ? <><h3>Bank details</h3><p>IBAN: add your IBAN</p><p>SWIFT/BIC: add your SWIFT</p><p>Payment reference: Investment account activation</p></> : <><h3>Crypto payment</h3><p>USDT TRC20: add wallet</p><p>BTC: add wallet</p><p>ETH/ERC20: add wallet</p></>}</div>
+        <div style={styles.payBox}>{payment === "bank" ? <><h3>
+  {lang === "cz"
+    ? "Bankovní údaje"
+    : lang === "pl"
+    ? "Dane bankowe"
+    : lang === "sk"
+    ? "Bankové údaje"
+    : "Bank details"}
+</h3><p>IBAN: add your IBAN</p><p>SWIFT/BIC: add your SWIFT</p><p>Payment reference: Investment account activation</p></> : <><h3>
+  {lang === "cz"
+    ? "Bankovní údaje"
+    : lang === "pl"
+    ? "Dane bankowe"
+    : lang === "sk"
+    ? "Bankové údaje"
+    : "Bank details"}
+</h3><p>USDT TRC20: add wallet</p><p>BTC: add wallet</p><p>ETH/ERC20: add wallet</p></>}</div>
       </section>
 
       <section style={styles.section}><h2>{t.documents}</h2><div style={styles.docs}>{["ČNB Certificate", "Company Documents", "Risk Policy", "Agreement", "KYC / AML"].map((d) => <div style={styles.doc} key={d}>📄 {d}</div>)}</div></section>
