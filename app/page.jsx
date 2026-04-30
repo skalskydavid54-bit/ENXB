@@ -203,7 +203,23 @@ export default function Home() {
 
       <section id="payment" style={styles.section}>
         <h2>{t.payment}</h2>
-        <div style={styles.tabs}><button style={payment === "bank" ? styles.activeTab : styles.tab} onClick={() => setPayment("bank")}>Bank transfer</button><button style={payment === "crypto" ? styles.activeTab : styles.tab} onClick={() => setPayment("crypto")}>Crypto</button></div>
+        <div style={styles.tabs}><button style={payment === "bank" ? styles.activeTab : styles.tab} onClick={() => setPayment("bank")}><button>
+  {lang === "cz"
+    ? "Bankovní převod"
+    : lang === "pl"
+    ? "Przelew bankowy"
+    : lang === "sk"
+    ? "Bankový prevod"
+    : "Bank transfer"}
+</button></button><button style={payment === "crypto" ? styles.activeTab : styles.tab} onClick={() => setPayment("crypto")}><button>
+  {lang === "cz"
+    ? "Bankovní převod"
+    : lang === "pl"
+    ? "Przelew bankowy"
+    : lang === "sk"
+    ? "Bankový prevod"
+    : "Bank transfer"}
+</button></button></div>
         <div style={styles.payBox}>{payment === "bank" ? <><h3>
   {lang === "cz"
     ? "Bankovní údaje"
@@ -229,7 +245,15 @@ export default function Home() {
         <h2>{t.contact}</h2>
         <select style={styles.manager} value={manager} onChange={(e) => setManager(e.target.value)}>{managers.map((m) => <option key={m}>{m}</option>)}</select>
         <div style={styles.contactGrid}><a style={styles.contactBtn} href="https://wa.me/" target="_blank">WhatsApp</a><a style={styles.contactBtn} href="https://t.me/" target="_blank">Telegram</a><a style={styles.contactBtn} href="https://meet.google.com/" target="_blank">Google Meet</a></div>
-        <p style={styles.small}>Selected manager: {manager}</p>
+        <p style={styles.small}><button>
+  {lang === "cz"
+    ? "Bankovní převod"
+    : lang === "pl"
+    ? "Przelew bankowy"
+    : lang === "sk"
+    ? "Bankový prevod"
+    : "Bank transfer"}
+</button>: {manager}</p>
       </section>
 
       <footer style={styles.footer}>{t.warning}</footer>
