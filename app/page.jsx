@@ -168,7 +168,15 @@ export default function Home() {
 
       <section id="plans" style={styles.section}>
         <h2>{t.accounts}</h2>
-        <p style={styles.small}>Each next level gives more analytics, support, markets and execution priority.</p>
+       <p style={styles.small}>
+  {lang === "cz"
+    ? "Každá další úroveň nabízí více analytiky, podpory, trhů a priority provedení."
+    : lang === "pl"
+    ? "Każdy kolejny poziom daje więcej analityki, wsparcia, rynków i priorytetu realizacji."
+    : lang === "sk"
+    ? "Každá ďalšia úroveň ponúka viac analytiky, podpory, trhov a priority realizácie."
+    : "Each next level gives more analytics, support, markets and execution priority."}
+</p>
         <div style={styles.planGrid}>{plans.map((p, i) => <div key={p.name} style={i === planIndex ? styles.planActive : styles.plan}><div style={styles.badge}>{p.badge}</div><h3>{p.name}</h3><h2>{p.min.toLocaleString()} €</h2><p style={styles.blue}>{p.minP}% – {p.maxP}% / month</p><p>Broker fee: {p.fee}%</p>{p.bonus && <p style={styles.bonus}>+{p.bonus} € bonus</p>}<ul style={styles.list}>{p.features.map((f) => <li key={f}>✓ {f}</li>)}</ul><button onClick={() => { setPlanIndex(i); setAmount(p.min); }} style={styles.goldBtn}>{t.choose}</button></div>)}</div>
       </section>
 
